@@ -38,6 +38,10 @@ jar {
 
 apply plugin: "jacoco"
 
+jacoco {
+    toolVersion = "0.8.2"
+}
+
 jacocoTestReport {
     reports {
         xml.enabled true
@@ -50,3 +54,5 @@ jacocoTestReport {
         })
     }
 }
+
+apply plugin: 'checkstyle'
