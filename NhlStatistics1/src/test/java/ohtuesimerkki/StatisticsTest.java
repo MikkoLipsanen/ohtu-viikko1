@@ -50,17 +50,25 @@ public class StatisticsTest {
     
     @Test
     public void returnsRightPlayersOfTeam(){
-        assertEquals(readerStub.getPlayers().get(1), stats.team("PIT"));
+        ArrayList<Player> testList = new ArrayList<Player>();
+        testList.add(readerStub.getPlayers().get(0));
+        testList.add(readerStub.getPlayers().get(2));
+        testList.add(readerStub.getPlayers().get(4));
+        assertEquals(testList, stats.team("EDM"));
+    }
+    
+    @Test
+    public void returnsEmptyListWhenTeamNotOnList(){
+        ArrayList<Player> testList = new ArrayList<Player>();
+        assertEquals(testList, stats.team("CAL"));
     }
     
     @Test
     public void returnsRightTopScorers(){
-        assertEquals(readerStub.getPlayers().get(4), stats.topScorers(0));
+        ArrayList<Player> testList = new ArrayList<Player>();
+        testList.add(readerStub.getPlayers().get(4));
+        testList.add(readerStub.getPlayers().get(1));
+        assertEquals(testList, stats.topScorers(1));
     }
 
-
-  @Test
-    public void returnsTopScorers(){
-        assertEquals("[Gretzky              EDM 35 + 89 = 124]", stats.topScorers(0));
-    }
 }
